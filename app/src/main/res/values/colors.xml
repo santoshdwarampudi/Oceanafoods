@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#027ebc</color>
+    <color name="colorPrimaryDark">#027ebc</color>
+    <color name="colorAccent">#038DD3</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#FF0000</color>
+    <color name="darkred">#B22222</color>
+    <color name="black">#000000</color>
+    <color name="lime">#00FF00</color>
+    <color name="grey">#D3D3D3</color>
+    <color name="bottom_clicked_color">#014b88</color>
+</resources>

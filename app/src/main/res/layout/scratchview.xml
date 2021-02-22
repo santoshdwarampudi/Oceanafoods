@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_160sdp"
+    android:layout_height="@dimen/_160sdp"
+    xmlns:app="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="@dimen/_160sdp"
+        android:layout_gravity="center"
+        android:padding="@dimen/_5sdp"
+        card_view:cardCornerRadius="@dimen/_4sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_offer"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:src="@drawable/ic_logo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_wonprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text=""
+                android:textSize="@dimen/_15ssp" />
+        </LinearLayout>
+
+        <com.anupkumarpanwar.scratchview.ScratchView
+            android:id="@+id/scratch_view"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_160sdp"
+            app:overlay_height="@dimen/_160sdp"
+            app:overlay_width="@dimen/_160sdp"
+            card_view:overlay_image="@drawable/ic_scratchoverlay" />
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

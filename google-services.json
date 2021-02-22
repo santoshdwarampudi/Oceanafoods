@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "380999855085",
+    "project_id": "beaming-source-305504",
+    "storage_bucket": "beaming-source-305504.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380999855085:android:cc5cb01a8bfc14aaf655e4",
+        "android_client_info": {
+          "package_name": "com.oceanaafoods"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380999855085-68cb9e8i4ilnod9mq2k3ej49ljnb24n6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oceanaafoods",
+            "certificate_hash": "47d4bdac09cfc4baebb907188005c305b93efc84"
+          }
+        },
+        {
+          "client_id": "380999855085-leesmtujp1cufo3v3ucpdqke1dbtf5r3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsWjd6mpHW93qQEWgseR8vlRlE3LQ09fE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380999855085-leesmtujp1cufo3v3ucpdqke1dbtf5r3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
