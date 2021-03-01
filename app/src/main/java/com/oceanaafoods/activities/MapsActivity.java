@@ -88,7 +88,7 @@ public class MapsActivity extends BaseAppCompactActivity implements OnMapReadyCa
             Places.initialize(getApplicationContext(), "AIzaSyAsWjd6mpHW93qQEWgseR8vlRlE3LQ09fE");
         }
 
-// Create a new Places client instance.
+        // Create a new Places client instance.
         PlacesClient placesClient = Places.createClient(this);
         AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
                 getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
@@ -197,6 +197,7 @@ public class MapsActivity extends BaseAppCompactActivity implements OnMapReadyCa
                 break;
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
