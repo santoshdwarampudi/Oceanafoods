@@ -4,9 +4,11 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -30,5 +32,19 @@ public class LocationUtil {
             e.printStackTrace();
         }
         return strAdd;
+    }
+
+    public static String getAreaName(LatLng latLng, Context context) {
+        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
+            Address obj = addresses.get(0);
+            return obj.getSubLocality() != null ? obj.getSubLocality() : obj
+                    .getLocality();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return "Your Location";
+        }
     }
 }
