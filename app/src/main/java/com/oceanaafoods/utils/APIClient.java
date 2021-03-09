@@ -5,9 +5,12 @@ import androidx.annotation.NonNull;
 import com.oceanaafoods.BuildConfig;
 import com.oceanaafoods.interfaces.APIConstants;
 import com.oceanaafoods.interfaces.ApiInterface;
+import com.oceanaafoods.interfaces.GoogleApi;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
+import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -18,8 +21,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
     private static ApiInterface apiInterface;
+    private static GoogleApi googleApi;
 
     private static Retrofit retrofit = null;
+    private static final int OK_HTTP_CASH_MAX_SIZE = 10 * 1024 * 1024;
+    private static final int OK_HTTP_TIME_OUT_IN_SECONDS = 1000;
 
     public static ApiInterface getAPIService() {
         if (apiInterface == null)
@@ -31,6 +37,12 @@ public class APIClient {
         if (apiInterface == null)
             apiInterface = getClientForMultiPart().create(ApiInterface.class);
         return apiInterface;
+    }
+
+    public static GoogleApi getGoogleAPIService() {
+        if (googleApi == null)
+            googleApi = getGoogleClient().create(GoogleApi.class);
+        return googleApi;
     }
 
     private static Retrofit getClientForMultiPart() {
@@ -48,6 +60,15 @@ public class APIClient {
                 .baseUrl(APIConstants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(getOkHttpClientObject())
+                .build();
+        return retrofit;
+    }
+
+    public static Retrofit getGoogleClient() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl(GoogleApi.BASE_URL_MAPS)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(getGoogleOkHttpClient())
                 .build();
         return retrofit;
     }
@@ -88,5 +109,15 @@ public class APIClient {
             httpClient.addInterceptor(logging);// <-- this is the important line!
         }
         return httpClient.build();
+    }
+
+    private static OkHttpClient getGoogleOkHttpClient() {
+        HttpLoggingInterceptor mHttpLogger = new HttpLoggingInterceptor();
+        OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
+                .readTimeout(OK_HTTP_TIME_OUT_IN_SECONDS, TimeUnit.SECONDS)
+                .connectTimeout(OK_HTTP_TIME_OUT_IN_SECONDS, TimeUnit.SECONDS)
+                .addInterceptor(mHttpLogger)
+                .build();
+        return mOkHttpClient;
     }
 }
